@@ -7,7 +7,7 @@ import { Modal, Button } from "react-bootstrap";
 const Project = (props) => (
   <tr>
     <td>
-      <Link to={"/api/projects/" + props.project._id}>{props.project.name}</Link>
+      <Link to={"/projects/" + props.project._id}>{props.project.name}</Link>
     </td>
     <td>
       <a href={props.project.url} target="blank">
@@ -16,7 +16,7 @@ const Project = (props) => (
     </td>
     <td>{props.project.description}</td>
     <td>
-      <Link to={"/api/projects/" + props.project._id + "/update"}>
+      <Link to={"/projects/" + props.project._id + "/update"}>
         <button type="button" className="btn btn-info">
           Edit
         </button>
@@ -110,7 +110,7 @@ export default class ProjectList extends Component {
     return (
       <div>
         {/* Yes, putting the header after the button that floats right puts them on the same line...*/}
-        <Link to="/api/projects/add">
+        <Link to="/projects/add">
           <Button variant="primary float-right">Add New Project</Button>
         </Link>
 

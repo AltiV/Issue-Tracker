@@ -180,7 +180,7 @@ export default class IssueDetails extends Component {
   render() {
     return this.state.issue.name ? (
       <>
-        <Link to={"/api/projects/" + this.props.match.params.id}>
+        <Link to={"/projects/" + this.props.match.params.id}>
           &lt; Return to Project
         </Link>
 
@@ -190,7 +190,7 @@ export default class IssueDetails extends Component {
 
         <Link
           to={
-            "/api/projects/" +
+            "/projects/" +
             this.props.match.params.id +
             "/" +
             this.props.match.params.type +

@@ -48,7 +48,7 @@ export default class ProjectDetails extends Component {
 
         <Link
           to={{
-            pathname: "/api/projects/" + this.props.match.params.id + "/addissue",
+            pathname: "/projects/" + this.props.match.params.id + "/addissue",
             // query: { projectId: this.state._id, projectName: this.state.name },
           }}
         >
@@ -72,7 +72,7 @@ export default class ProjectDetails extends Component {
                   <td>
                     <Link
                       to={
-                        "/api/projects/" +
+                        "/projects/" +
                         this.props.match.params.id +
                         "/" +
                         issue._id
