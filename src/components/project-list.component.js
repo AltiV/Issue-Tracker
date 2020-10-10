@@ -10,7 +10,7 @@ const Project = (props) => (
       <Link to={"/projects/" + props.project._id}>{props.project.name}</Link>
     </td>
     <td>
-      <a href={"//" + props.project.url} target="blank">
+      <a href={props.project.url} target="blank">
         {props.project.url}
       </a>
     </td>
