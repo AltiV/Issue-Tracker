@@ -67,7 +67,7 @@ export default class IssueDetails extends Component {
       )
       .then((res) => {
         console.log(res.data);
-        window.location = "/api/projects/" + this.props.match.params.id;
+        window.location = "/projects/" + this.props.match.params.id;
       });
   }
 

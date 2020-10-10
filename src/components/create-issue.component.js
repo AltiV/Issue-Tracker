@@ -59,7 +59,7 @@ export default class CreateIssue extends Component {
       .then((res) => {
         console.log(res.data);
         // Return to projects screen
-        window.location = "/api/projects/" + this.props.match.params.id;
+        window.location = "/projects/" + this.props.match.params.id;
       });
   }
 

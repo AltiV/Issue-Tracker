@@ -73,7 +73,7 @@ export default class EditProject extends Component {
         console.log(res.data);
         // Return to projects screen
         window.location =
-          "/api/projects/" +
+          "/projects/" +
           this.props.match.params.id +
           "/" +
           this.props.match.params.type;
