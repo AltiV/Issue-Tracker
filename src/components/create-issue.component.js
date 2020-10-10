@@ -18,7 +18,7 @@ export default class CreateIssue extends Component {
 
   componentDidMount() {
     axios
-      .get("http://localhost:5000/projects/" + this.props.match.params.id)
+      .get("/projects/" + this.props.match.params.id)
       .then((response) => {
         this.setState({
           projectName: response.data.name,
@@ -51,7 +51,7 @@ export default class CreateIssue extends Component {
     // Send a POST request to the database to save the project
     axios
       .post(
-        "http://localhost:5000/projects/" +
+        "/projects/" +
           this.props.match.params.id +
           "/addissue",
         issue

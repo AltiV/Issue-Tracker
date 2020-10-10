@@ -18,7 +18,7 @@ export default class ProjectDetails extends Component {
 
   componentDidMount() {
     axios
-      .get("http://localhost:5000/projects/" + this.props.match.params.id)
+      .get("/projects/" + this.props.match.params.id)
       .then((response) => {
         this.setState({
           name: response.data.name,

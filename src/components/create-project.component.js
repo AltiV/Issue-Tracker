@@ -40,7 +40,7 @@ export default class CreateProject extends Component {
     };
 
     // Send a POST request to the database to save the project
-    axios.post("http://localhost:5000/projects/add", project).then((res) => {
+    axios.post("/projects/add", project).then((res) => {
       console.log(res.data);
       // Return to projects screen
       window.location = "/";

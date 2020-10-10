@@ -75,7 +75,7 @@ export default class ProjectList extends Component {
 
   componentDidMount() {
     axios
-      .get("http://localhost:5000/projects/")
+      .get("/projects")
       .then((response) => {
         this.setState({ projects: response.data });
       })
@@ -86,7 +86,7 @@ export default class ProjectList extends Component {
 
   deleteProject(id) {
     axios
-      .delete("http://localhost:5000/projects/" + id)
+      .delete("/projects/" + id)
       .then((res) => console.log(res.data));
 
     this.setState({

@@ -32,12 +32,6 @@ export default class IssueDetails extends Component {
     axios
       .get("http://localhost:5000/projects/" + this.props.match.params.id)
       .then((response) => {
-        // console.log(
-        //   response.data.issues.find(
-        //     (obj) => (obj._id = this.props.match.params.type)
-        //   )
-        // );
-
         this.setState({
           name: response.data.name,
           url: response.data.url,
