@@ -19,7 +19,7 @@ export default class EditProject extends Component {
 
   componentDidMount() {
     axios
-      .get("/projects/" + this.props.match.params.id)
+      .get("/api/projects/" + this.props.match.params.id)
       .then((response) => {
         this.setState({
           name: response.data.name,
@@ -61,7 +61,7 @@ export default class EditProject extends Component {
 
     axios
       .post(
-        "/projects/update/" + this.props.match.params.id,
+        "/api/projects/update/" + this.props.match.params.id,
         project
       )
       .then((res) => {

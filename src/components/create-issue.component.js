@@ -18,7 +18,7 @@ export default class CreateIssue extends Component {
 
   componentDidMount() {
     axios
-      .get("/projects/" + this.props.match.params.id)
+      .get("/api/projects/" + this.props.match.params.id)
       .then((response) => {
         this.setState({
           projectName: response.data.name,
@@ -51,7 +51,7 @@ export default class CreateIssue extends Component {
     // Send a POST request to the database to save the project
     axios
       .post(
-        "/projects/" +
+        "/api/projects/" +
           this.props.match.params.id +
           "/addissue",
         issue
@@ -59,7 +59,7 @@ export default class CreateIssue extends Component {
       .then((res) => {
         console.log(res.data);
         // Return to projects screen
-        window.location = "/projects/" + this.props.match.params.id;
+        window.location = "/api/projects/" + this.props.match.params.id;
       });
   }
 

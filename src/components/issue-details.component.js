@@ -30,7 +30,7 @@ export default class IssueDetails extends Component {
 
   componentDidMount() {
     axios
-      .get("/projects/" + this.props.match.params.id)
+      .get("/api/projects/" + this.props.match.params.id)
       .then((response) => {
         this.setState({
           name: response.data.name,
@@ -59,7 +59,7 @@ export default class IssueDetails extends Component {
   deleteIssue() {
     axios
       .delete(
-        "/projects/" +
+        "/api/projects/" +
           this.props.match.params.id +
           "/" +
           this.props.match.params.type +
@@ -67,7 +67,7 @@ export default class IssueDetails extends Component {
       )
       .then((res) => {
         console.log(res.data);
-        window.location = "/projects/" + this.props.match.params.id;
+        window.location = "/api/projects/" + this.props.match.params.id;
       });
   }
 
@@ -83,7 +83,7 @@ export default class IssueDetails extends Component {
     // Send a POST request to the database to save the project
     axios
       .post(
-        "/projects/" +
+        "/api/projects/" +
           this.props.match.params.id +
           "/" +
           this.props.match.params.type +
@@ -94,7 +94,7 @@ export default class IssueDetails extends Component {
         console.log(res.data);
 
         axios
-          .get("/projects/" + this.props.match.params.id)
+          .get("/api/projects/" + this.props.match.params.id)
           .then((response) => {
             this.setState({
               issue: response.data.issues.find(
@@ -117,7 +117,7 @@ export default class IssueDetails extends Component {
 
     axios
       .patch(
-        "/projects/" +
+        "/api/projects/" +
           this.props.match.params.id +
           "/" +
           this.props.match.params.type +
@@ -132,7 +132,7 @@ export default class IssueDetails extends Component {
         });
 
         axios
-          .get("/projects/" + this.props.match.params.id)
+          .get("/api/projects/" + this.props.match.params.id)
           .then((response) => {
             this.setState({
               issue: response.data.issues.find(
@@ -152,7 +152,7 @@ export default class IssueDetails extends Component {
 
     axios
       .delete(
-        "/projects/" +
+        "/api/projects/" +
           this.props.match.params.id +
           "/" +
           this.props.match.params.type +
@@ -162,7 +162,7 @@ export default class IssueDetails extends Component {
       )
       .then(() => {
         axios
-          .get("/projects/" + this.props.match.params.id)
+          .get("/api/projects/" + this.props.match.params.id)
           .then((response) => {
             this.setState({
               issue: response.data.issues.find(
@@ -180,7 +180,7 @@ export default class IssueDetails extends Component {
   render() {
     return this.state.issue.name ? (
       <>
-        <Link to={"/projects/" + this.props.match.params.id}>
+        <Link to={"/api/projects/" + this.props.match.params.id}>
           &lt; Return to Project
         </Link>
 
@@ -190,7 +190,7 @@ export default class IssueDetails extends Component {
 
         <Link
           to={
-            "/projects/" +
+            "/api/projects/" +
             this.props.match.params.id +
             "/" +
             this.props.match.params.type +

@@ -18,7 +18,7 @@ export default class ProjectDetails extends Component {
 
   componentDidMount() {
     axios
-      .get("/projects/" + this.props.match.params.id)
+      .get("/api/projects/" + this.props.match.params.id)
       .then((response) => {
         this.setState({
           name: response.data.name,
@@ -48,7 +48,7 @@ export default class ProjectDetails extends Component {
 
         <Link
           to={{
-            pathname: "/projects/" + this.props.match.params.id + "/addissue",
+            pathname: "/api/projects/" + this.props.match.params.id + "/addissue",
             // query: { projectId: this.state._id, projectName: this.state.name },
           }}
         >
@@ -72,7 +72,7 @@ export default class ProjectDetails extends Component {
                   <td>
                     <Link
                       to={
-                        "/projects/" +
+                        "/api/projects/" +
                         this.props.match.params.id +
                         "/" +
                         issue._id

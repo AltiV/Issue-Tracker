@@ -21,7 +21,7 @@ export default class EditProject extends Component {
   componentDidMount() {
     axios
       .get(
-        "/projects/" +
+        "/api/projects/" +
           this.props.match.params.id +
           "/" +
           this.props.match.params.type
@@ -62,7 +62,7 @@ export default class EditProject extends Component {
     // Send a PATCH request to the database to update the issue
     axios
       .patch(
-        "/projects/" +
+        "/api/projects/" +
           this.props.match.params.id +
           "/" +
           this.props.match.params.type +
@@ -73,7 +73,7 @@ export default class EditProject extends Component {
         console.log(res.data);
         // Return to projects screen
         window.location =
-          "/projects/" +
+          "/api/projects/" +
           this.props.match.params.id +
           "/" +
           this.props.match.params.type;

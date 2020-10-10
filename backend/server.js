@@ -37,15 +37,17 @@ connection.once("open", () => {
   console.log("MongoDB Compass Connection Successful.");
 });
 
+// Server static files in Express in the build folder
 app.use(express.static(path.join(__dirname, '../build')))
+// Transfer build folder files for all get requests (?)
 app.get('*', (req, res) => {
     res.sendFile(path.join(__dirname, '../build'))
 })
 
 // Include projects.js route module
-const projectsRouter = require("./routes/projects");
+const projectsRouter = require("./api/projects");
 // Specify middleware as callback function
-app.use("/projects", projectsRouter);
+app.use("/api/projects", projectsRouter);
 
 app.listen(port, () => {
   console.log(`Server is running on port: ${port}`);
