@@ -30,7 +30,7 @@ export default class IssueDetails extends Component {
 
   componentDidMount() {
     axios
-      .get("http://localhost:5000/projects/" + this.props.match.params.id)
+      .get("/projects/" + this.props.match.params.id)
       .then((response) => {
         this.setState({
           name: response.data.name,
@@ -59,7 +59,7 @@ export default class IssueDetails extends Component {
   deleteIssue() {
     axios
       .delete(
-        "http://localhost:5000/projects/" +
+        "/projects/" +
           this.props.match.params.id +
           "/" +
           this.props.match.params.type +
@@ -83,7 +83,7 @@ export default class IssueDetails extends Component {
     // Send a POST request to the database to save the project
     axios
       .post(
-        "http://localhost:5000/projects/" +
+        "/projects/" +
           this.props.match.params.id +
           "/" +
           this.props.match.params.type +
@@ -94,7 +94,7 @@ export default class IssueDetails extends Component {
         console.log(res.data);
 
         axios
-          .get("http://localhost:5000/projects/" + this.props.match.params.id)
+          .get("/projects/" + this.props.match.params.id)
           .then((response) => {
             this.setState({
               issue: response.data.issues.find(
@@ -117,7 +117,7 @@ export default class IssueDetails extends Component {
 
     axios
       .patch(
-        "http://localhost:5000/projects/" +
+        "/projects/" +
           this.props.match.params.id +
           "/" +
           this.props.match.params.type +
@@ -132,7 +132,7 @@ export default class IssueDetails extends Component {
         });
 
         axios
-          .get("http://localhost:5000/projects/" + this.props.match.params.id)
+          .get("/projects/" + this.props.match.params.id)
           .then((response) => {
             this.setState({
               issue: response.data.issues.find(
@@ -152,7 +152,7 @@ export default class IssueDetails extends Component {
 
     axios
       .delete(
-        "http://localhost:5000/projects/" +
+        "/projects/" +
           this.props.match.params.id +
           "/" +
           this.props.match.params.type +
@@ -162,7 +162,7 @@ export default class IssueDetails extends Component {
       )
       .then(() => {
         axios
-          .get("http://localhost:5000/projects/" + this.props.match.params.id)
+          .get("/projects/" + this.props.match.params.id)
           .then((response) => {
             this.setState({
               issue: response.data.issues.find(
