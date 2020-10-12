@@ -9,7 +9,7 @@ const mongoose = require("mongoose");
 
 // Allow variables to be read from a .env file, which is loaded into process.env
 // Also set the path so server.js can be properly run outside of its directory
-require("dotenv").config({ path: "./backend/.env" });
+require("dotenv").config({ path: __dirname + "/.env" });
 
 // Create Express application inside the app variable via constructor
 const app = express();
@@ -38,11 +38,11 @@ connection.once("open", () => {
 });
 
 // Server static files in Express in the build folder
-app.use(express.static(path.join(__dirname, '../build')))
+app.use(express.static(path.join(__dirname, "../build")));
 // Transfer build folder files for all get requests (?)
-app.get('*', (req, res) => {
-    res.sendFile(path.join(__dirname, '../build'))
-})
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname, "../build"));
+});
 
 // Include projects.js route module
 const projectsRouter = require("./api/projects");

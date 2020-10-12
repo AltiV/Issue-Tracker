@@ -37,7 +37,7 @@ export default class IssueDetails extends Component {
           url: response.data.url,
           description: response.data.description,
           issue: response.data.issues.find(
-            (obj) => (obj._id = this.props.match.params.type)
+            (obj) => obj._id === this.props.match.params.type
           ),
         });
       })
