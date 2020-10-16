@@ -39,14 +39,9 @@ connection.once("open", () => {
 
 // Server static files in Express in the build folder
 app.use(express.static(path.join(__dirname, "../build")));
-
 // Transfer build folder files for all get requests (?)
 app.get("*", (req, res) => {
-  res.sendFile(path.join(__dirname, "../build/index.html"), (err) => {
-    if (err) {
-      res.status(500).send(err);
-    }
-  });
+  res.sendFile(path.join(__dirname, "../build"));
 });
 
 // Include projects.js route module
