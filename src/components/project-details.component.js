@@ -66,26 +66,36 @@ export default class ProjectDetails extends Component {
             </tr>
           </thead>
           <tbody>
-            {this.state.issues.map((issue) => {
-              return (
-                <tr key={issue._id}>
-                  <td>
-                    <Link
-                      to={
-                        "/projects/" +
-                        this.props.match.params.id +
-                        "/" +
-                        issue._id
-                      }
-                    >
-                      {issue.name}
-                    </Link>
-                  </td>
-                  <td>{issue.status}</td>
-                  <td>{issue.workload}</td>
-                </tr>
-              );
-            })}
+            {this.state.issues
+              .sort((a, b) => {
+                return b.status.localeCompare(a.status);
+              })
+              .map((issue) => {
+                return (
+                  <tr
+                    key={issue._id}
+                    style={{
+                      backgroundColor:
+                        issue.status === "Closed" ? "lightgrey" : "",
+                    }}
+                  >
+                    <td>
+                      <Link
+                        to={
+                          "/projects/" +
+                          this.props.match.params.id +
+                          "/" +
+                          issue._id
+                        }
+                      >
+                        {issue.name}
+                      </Link>
+                    </td>
+                    <td>{issue.status}</td>
+                    <td>{issue.workload}</td>
+                  </tr>
+                );
+              })}
           </tbody>
         </Table>
       </>
