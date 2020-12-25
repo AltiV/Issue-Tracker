@@ -90,21 +90,27 @@ export default class IssueDetails extends Component {
         update
       )
       .then(res => {
-        axios
-          .get('/api/projects/' + this.props.match.params.id)
-          .then(response => {
-            this.setState({
-              ...this.state,
-              issue: response.data.issues.find(
-                obj => (obj._id = this.props.match.params.type)
-              )
-            })
+        // axios
+        //   .get('/api/projects/' + this.props.match.params.id)
+        //   .then(response => {
+        //     console.log(this.props.match.params.type)
 
-            console.log(this.state)
-          })
-          .catch(error => {
-            console.log(error)
-          })
+        //     console.log(response.data.issues)
+
+        //     this.setState({
+        //       ...this.state,
+        //       issue: response.data.issues.find(
+        //         obj => (obj._id = this.props.match.params.type)
+        //       )
+        //     })
+
+        //     console.log(this.state)
+        //   })
+        //   .catch(error => {
+        //     console.log(error)
+        //   })
+
+        window.location.reload(false)
       })
   }
 
@@ -135,11 +141,18 @@ export default class IssueDetails extends Component {
         axios
           .get('/api/projects/' + this.props.match.params.id)
           .then(response => {
-            this.setState({
-              issue: response.data.issues.find(
-                obj => (obj._id = this.props.match.params.type)
-              )
-            })
+            // this.setState({
+            //   ...this.state,
+            //   issue: response.data.issues.find(
+            //     obj => (obj._id = this.props.match.params.type)
+            //   )
+            // })
+
+            // ISSUE: Issue[0] always copies the same ID as whatever issue is currently being linked to, forcing incorrect state update
+            // console.log(response.data)
+
+            // This is a stopgap for now
+            window.location.reload(false)
           })
           .catch(error => {
             console.log(error)
@@ -162,19 +175,21 @@ export default class IssueDetails extends Component {
           '/delete'
       )
       .then(() => {
-        axios
-          .get('/api/projects/' + this.props.match.params.id)
-          .then(response => {
-            this.setState({
-              ...this.state,
-              issue: response.data.issues.find(
-                obj => (obj._id = this.props.match.params.type)
-              )
-            })
-          })
-          .catch(error => {
-            console.log(error)
-          })
+        // axios
+        //   .get('/api/projects/' + this.props.match.params.id)
+        //   .then(response => {
+        //     this.setState({
+        //       ...this.state,
+        //       issue: response.data.issues.find(
+        //         obj => (obj._id = this.props.match.params.type)
+        //       )
+        //     })
+        //   })
+        //   .catch(error => {
+        //     console.log(error)
+        //   })
+
+        window.location.reload(false)
       })
       .catch(error => console.log(error))
   }
